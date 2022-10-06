@@ -1,5 +1,6 @@
 package Lobby;
 
+import GUIMethods.openWindows;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -32,12 +33,13 @@ public class Controller {
         try {
             Parent signUpParent = FXMLLoader.load(getClass().getResource("../SignUp/SignUp.fxml"));
             Stage signUpStage = new Stage();
-            signUpStage.getIcons().add(new Image(Main.class.getResourceAsStream("images/logo.jpg")));
+            signUpStage.getIcons().add(new Image(Main.class.getResourceAsStream("../logo.jpg")));
             signUpStage.setTitle("Picsart Academy Scheduling");
             signUpStage.setScene(new Scene(signUpParent, 700, 400));
             signUpStage.setResizable(false);
             signUpStage.show();
             signUpButton.getScene().getWindow().hide();
-        } catch(IOException e) {}
+        } catch(IOException e) {
+        }
     }
 }

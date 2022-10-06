@@ -1,6 +1,9 @@
 package SignUp;
 
+import Config.DBHandler;
+import GUIMethods.openWindows;
 import Lobby.Main;
+import Users.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,51 +25,47 @@ public class SignUpController {
     private Button createAccountButton;
 
     @FXML
+    private TextField eMailField;
+
+    @FXML
+    private TextField firstNameField;
+
+    @FXML
+    private TextField lastNameField;
+
+    @FXML
+    private PasswordField passwordConfirmField;
+
+    @FXML
     private PasswordField passwordField;
 
     @FXML
-    private PasswordField passwordField1;
+    private TextField phoneNumberField;
 
     @FXML
     private TextField userNameField;
 
     @FXML
-    private TextField userNameField1;
-
-    @FXML
-    private TextField userNameField11;
-
-    @FXML
-    private TextField userNameField111;
-
-    @FXML
-    private TextField userNameField112;
-
-    @FXML
     void backButtonHandle() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Lobby/Lobby.fxml"));
-            Stage backStage = new Stage();
-            backStage.getIcons().add(new Image(Main.class.getResourceAsStream("images/logo.jpg" )));
-            backStage.setTitle("Picsart Academy Scheduling");
-            backStage.setScene(new Scene(root, 700, 400));
-            backStage.setResizable(false);
-            backStage.show();
-            backButton.getScene().getWindow().hide();
-        } catch (IOException e) { }
+        openWindows.openLobby(getClass(), "../");
+        backButton.getScene().getWindow().hide();
     }
 
     @FXML
     void createAccountHandle() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Lobby/Lobby.fxml"));
-            Stage backStage = new Stage();
-            backStage.getIcons().add(new Image(Main.class.getResourceAsStream("images/logo.jpg" )));
-            backStage.setTitle("Picsart Academy Scheduling");
-            backStage.setScene(new Scene(root, 700, 400));
-            backStage.setResizable(false);
-            backStage.show();
-            createAccountButton.getScene().getWindow().hide();
-        } catch (IOException e) { }
+        User user = new User(userNameField.getText().trim(), firstNameField.getText().trim(), lastNameField.getText().trim(),
+                eMailField.getText().trim(), phoneNumberField.getText().trim());
+        String password = passwordField.getText();
+        String passwordConfirm = passwordConfirmField.getText();
+
+        signUpUser(user, password);
+
+        openWindows.openLobby(getClass(), "../");
+        createAccountButton.getScene().getWindow().hide();
+    }
+
+    void signUpUser(User user, String password){
+        DBHandler updateDB = new DBHandler();
+        updateDB.signUpNewUser(user, password);
     }
 }

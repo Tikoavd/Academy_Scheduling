@@ -61,7 +61,7 @@
                   <Font name="Mistral" size="53.0" />
                </font>
             </Text>
-            <TextField fx:id="userNameField" layoutX="227.0" layoutY="78.0" prefHeight="38.0" prefWidth="283.0" promptText="Username" style="-fx-background-color: #7d7d7d; -fx-opacity: 70%;">
+            <TextField fx:id="userNameField" layoutX="227.0" layoutY="78.0" prefHeight="38.0" prefWidth="283.0" promptText="Username or Email" style="-fx-background-color: #7d7d7d; -fx-opacity: 70%;">
                <font>
                   <Font size="14.0" />
                </font>
