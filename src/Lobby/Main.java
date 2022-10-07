@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        openWindows.openLobby(getClass(), "../");
+        openWindows.openWindow(getClass(), "../", "Lobby.fxml");
     }
 
 

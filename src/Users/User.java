@@ -6,13 +6,15 @@ public class User {
     private String lastName;
     private String eMail;
     private String phoneNumber;
+    private String password;
 
-    public User(String userName, String firstName, String lastName, String eMail, String phoneNumber){
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.eMail = eMail;
-        this.phoneNumber = phoneNumber;
+    public User(String userName, String firstName, String lastName, String eMail, String phoneNumber, String password){
+        setUserName(userName);
+        setFirstName(firstName);
+        setLastName(lastName);
+        seteMail(eMail);
+        setPhoneNumber(phoneNumber);
+        setPassword(password);
     }
 
     public String getUserName() {
@@ -33,5 +35,33 @@ public class User {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail.toLowerCase();
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

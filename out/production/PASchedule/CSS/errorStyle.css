@@ -1,0 +1,16 @@
+.text-input:error {
+    -fx-text-fill: white;
+    -fx-border-insets: 0;
+    -fx-border-width: 2px;
+    -fx-border-color: red;
+    -fx-border-style: solid;
+    -fx-background-color: derive(red, 99%);
+}
+
+.text-input:noterror {
+    -fx-border-insets: 0;
+    -fx-border-width: 2px;
+    -fx-border-color: green;
+    -fx-border-style: solid;
+    -fx-background-color: derive(green, 99%);
+}

@@ -2,10 +2,7 @@ package Config;
 
 import Users.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBHandler extends Configs {
     Connection dbConnection;
@@ -22,11 +19,11 @@ public class DBHandler extends Configs {
         return dbConnection;
     }
 
-    public void signUpNewUser(User user, String password) {
+    public void signUpNewUser(User user) {
         String insert = "INSERT INTO " + Const.USERS_TABLE + "(" +
                 Const.USER_USERNAME + "," + Const.USER_FIRSTNAME + "," + Const.USER_LASTNAME +
                 "," + Const.USER_EMAIL + "," + Const.USER_PHONE + "," + Const.USER_PASSWORD + ")" +
-                "VALUES(?,?,?,?,?,?)";
+                " VALUES(?,?,?,?,?," + "MD5(?))";
 
         try {
             PreparedStatement prepStat = getDbConnection().prepareStatement(insert);
@@ -35,11 +32,30 @@ public class DBHandler extends Configs {
             prepStat.setString(3, user.getLastName());
             prepStat.setString(4, user.geteMail());
             prepStat.setString(5, user.getPhoneNumber());
-            prepStat.setString(6, password);
+            prepStat.setString(6, user.getPassword());
 
             prepStat.executeUpdate();
         } catch (SQLException e) {
         } catch (ClassNotFoundException e){
         }
+    }
+
+    public ResultSet logInUser(String userIdentifier, String password){
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
+                Const.USER_USERNAME + "=\"" + userIdentifier + "\"" + " OR " +
+                Const.USER_EMAIL + "=\"" + userIdentifier + "\" OR " +
+                Const.USER_PHONE + "=\"" + userIdentifier + "\" AND " +
+                Const.USER_PASSWORD + "=MD5(\"" + password + "\")";
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            set = stat.executeQuery(query);
+        } catch (SQLException e){
+        } catch (ClassNotFoundException e){
+        }
+
+        return set;
     }
 }

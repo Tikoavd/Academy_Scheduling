@@ -56,22 +56,32 @@
                   <Image url="@images/bg.png" />
                </image>
             </ImageView>
-            <Text fill="#96f3ff" layoutX="230.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AUTHORIZATION">
+            <Text fill="#96f3ff" focusTraversable="true" layoutX="230.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AUTHORIZATION">
                <font>
                   <Font name="Mistral" size="53.0" />
                </font>
             </Text>
-            <TextField fx:id="userNameField" layoutX="227.0" layoutY="78.0" prefHeight="38.0" prefWidth="283.0" promptText="Username or Email" style="-fx-background-color: #7d7d7d; -fx-opacity: 70%;">
+            <Text fx:id="correctLoginText" fill="GREEN" layoutX="227.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username, Email or Phone">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="userIdentifierField" layoutX="227.0" layoutY="78.0" onKeyPressed="#handleUserIdentifier" prefHeight="38.0" prefWidth="283.0" promptText="Username, Email or Phone number" style="-fx-background-color: #7d7d7d; -fx-opacity: 70%;" styleClass="text-input" stylesheets="@../CSS/errorStyle.css">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="134.0" prefHeight="38.0" prefWidth="283.0" promptText="password" style="-fx-border-radius: 0; -fx-background-color: #7d7d7d; -fx-opacity: 80%;">
+            <Text fx:id="correctPasswordText" fill="GREEN" layoutX="227.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="134.0" onKeyPressed="#handlePasswordCorrection" prefHeight="38.0" prefWidth="283.0" promptText="password" style="-fx-border-radius: 0; -fx-background-color: #7d7d7d; -fx-opacity: 80%;" styleClass="text-input" stylesheets="@../CSS/errorStyle.css">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Button fx:id="logInButton" layoutX="289.0" layoutY="194.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #068A0A; -fx-opacity: 75%; -fx-background-radius: 20px;" text="Log in" textFill="#0d0b0b">
+            <Button fx:id="logInButton" layoutX="289.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #068A0A; -fx-opacity: 75%; -fx-background-radius: 20px;" text="Log in" textFill="#0d0b0b">
                <font>
                   <Font size="25.0" />
                </font>
@@ -81,6 +91,11 @@
                   <Font size="18.0" />
                </font>
             </Button>
+            <Text fx:id="incorrectUserText" fill="RED" layoutX="227.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
    </children>
 </AnchorPane>
