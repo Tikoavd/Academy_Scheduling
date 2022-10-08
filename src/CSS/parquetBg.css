@@ -1,0 +1,5 @@
+.parquet {
+    -fx-background-image: url("../MainPage/images/parquet.png");
+    -fx-background-size: 175px 400px;
+    -fx-background-repeat: repeat-x;
+}

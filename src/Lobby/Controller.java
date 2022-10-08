@@ -3,6 +3,7 @@ package Lobby;
 import Config.Const;
 import Config.DBHandler;
 import GUIMethods.openWindows;
+import MainPage.MainPageController;
 import Users.User;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
@@ -28,8 +29,6 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 public class Controller {
-    User user;
-
     @FXML
     private Text correctLoginText;
 
@@ -69,7 +68,7 @@ public class Controller {
             correctLoginText.setText("Please enter correct login: 6-20 characters.");
             correctLoginText.setStyle("-fx-fill: red");
 
-            if (password.length() < 6 || password.length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+            if (password.length() < 6 || password.length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$")) {
                 correctPasswordText.setText("Please enter correct password: 6-20 chatacters(at least 1 number)");
                 correctPasswordText.setStyle("-fx-fill: red");
             }
@@ -85,7 +84,7 @@ public class Controller {
             correctLoginText.setStyle("-fx-fill: green");
         }
 
-        if (password.length() < 6 || password.length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+        if (password.length() < 6 || password.length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$")) {
             correctPasswordText.setText("Please enter correct password: 6-20 chatacters(at least 1 number)");
             correctPasswordText.setStyle("-fx-fill: red");
             return;
@@ -95,12 +94,24 @@ public class Controller {
             correctPasswordText.setStyle("-fx-fill: green");
         }
 
-        DBHandler DbHandle = new DBHandler();
-        ResultSet set = DbHandle.logInUser(userIdentifier, password);
+        ResultSet set = (new DBHandler()).logInUser(userIdentifier, password);
 
         try {
             if (set.next()) {
-                System.out.println(set.getString(Const.USER_FIRSTNAME) + "\n" + set.getString(Const.USER_LASTNAME));
+                User user = new User(set.getString(Const.USER_USERNAME), set.getString(Const.USER_FIRSTNAME), set.getString(Const.USER_LASTNAME),
+                        set.getString(Const.USER_EMAIL), set.getString(Const.USER_PHONE), password);
+                user.setUserID(set.getInt(Const.USER_ID));
+
+                (new MainPageController()).createMainPage(user);
+                logInButton.getScene().getWindow().hide();
+
+                System.out.println(user.getUserID());
+                System.out.println(user.getUserName());
+                System.out.println(user.getFirstName());
+                System.out.println(user.getLastName());
+                System.out.println(user.geteMail());
+                System.out.println(user.getPhoneNumber());
+                System.out.println(user.getPassword());
             }
             else {
                 incorrectUserText.setText("Incorrect Username/Email or password!");
@@ -130,7 +141,7 @@ public class Controller {
     public void handlePasswordCorrection() {
         passwordField.textProperty().addListener(event -> {
             passwordField.pseudoClassStateChanged(PseudoClass.getPseudoClass("error"), !passwordField.getText().isEmpty() ||
-                    passwordField.getText().length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"));
+                    passwordField.getText().length() > 20 || !passwordField.getText().matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$"));
         });
 
         passwordField.textProperty().addListener(event -> {

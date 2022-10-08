@@ -40,14 +40,32 @@ public class DBHandler extends Configs {
         }
     }
 
-    public ResultSet logInUser(String userIdentifier, String password){
+    public ResultSet logInUser(String userIdentifier, String password) {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.USERS_TABLE + " WHERE (" +
+                Const.USER_USERNAME + "=\"" + userIdentifier + "\"" + " OR " +
+                Const.USER_EMAIL + "=\"" + userIdentifier + "\" OR " +
+                Const.USER_PHONE + "=\"" + userIdentifier + "\") AND " +
+                Const.USER_PASSWORD + "=MD5(\"" + password + "\")";
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            set = stat.executeQuery(query);
+        } catch (SQLException e){
+        } catch (ClassNotFoundException e){
+        }
+
+        return set;
+    }
+
+    public ResultSet getUser(User user) {
         ResultSet set = null;
 
         String query = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
-                Const.USER_USERNAME + "=\"" + userIdentifier + "\"" + " OR " +
-                Const.USER_EMAIL + "=\"" + userIdentifier + "\" OR " +
-                Const.USER_PHONE + "=\"" + userIdentifier + "\" AND " +
-                Const.USER_PASSWORD + "=MD5(\"" + password + "\")";
+                Const.USER_USERNAME + "=\"" + user.getUserName() + "\"" + " OR " +
+                Const.USER_EMAIL + "=\"" + user.geteMail() + "\" OR " +
+                Const.USER_PHONE + "=\"" + user.getPhoneNumber() + "\"";
 
         try {
             Statement stat = getDbConnection().createStatement();

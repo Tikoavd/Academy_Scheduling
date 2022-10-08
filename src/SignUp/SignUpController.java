@@ -3,6 +3,7 @@ package SignUp;
 import Config.DBHandler;
 import GUIMethods.openWindows;
 import Lobby.Main;
+import MainPage.MainPageController;
 import Users.User;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SignUpController {
     @FXML
@@ -50,12 +53,12 @@ public class SignUpController {
     @FXML
     private Text validText;
 
-    public void backButtonHandle() {
+    public void backButtonHandler() {
         openWindows.openWindow(getClass(), "../", "../Lobby/Lobby.fxml");
         backButton.getScene().getWindow().hide();
     }
 
-    public void createAccountHandle() {
+    public void createAccountHandler() {
         //Please enter valid information
 
         String userName = userNameField.getText().trim();
@@ -112,16 +115,29 @@ public class SignUpController {
             return;
         }
 
-        validText.setText("Success!");
+        User user = new User(userName, firstName, lastName, eMail, phoneNumber, password);
 
-        /*User user = new User(userNameField.getText().trim(), firstNameField.getText().trim(), lastNameField.getText().trim(),
-                eMailField.getText().trim(), phoneNumberField.getText().trim(), passwordField.getText());
+        DBHandler dbCon = new DBHandler();
+        ResultSet set = dbCon.getUser(user);
 
-        DBHandler updateDB = new DBHandler();
-        updateDB.signUpNewUser(user);*/
-
-        /*openWindows.openWindow(getClass(), "../", "../Lobby/Lobby.fxml");
-        createAccountButton.getScene().getWindow().hide();*/
+        try {
+          if(set.next()){
+              validText.setText("Such user already exists.");
+              return;
+          }
+          else {
+              dbCon.signUpNewUser(user);
+              firstNameField.setText("");
+              lastNameField.setText("");
+              userNameField.setText("");
+              eMailField.setText("");
+              phoneNumberField.setText("");
+              passwordField.setText("");
+              passwordConfirmField.setText("");
+              validText.setText("Success!");
+              validText.setStyle("-fx-fill: green");
+          }
+        } catch (SQLException e){ }
     }
 
     public void confirmPasswordCorrectly() {

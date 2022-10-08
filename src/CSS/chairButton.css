@@ -1,0 +1,23 @@
+.chairDown {
+    -fx-background-image: url("../MainPage/images/chairDown.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: green;
+    -fx-background-radius: 11px;
+ }
+
+.chairUp {
+    -fx-background-image: url("../MainPage/images/chairUp.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: green;
+    -fx-background-radius: 11px;
+}
+
+.chairLeft {
+    -fx-background-image: url("../MainPage/images/chairLeft.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: green;
+    -fx-background-radius: 11px;
+}
+
+.chairRight {
+    -fx-background-image: url("../MainPage/images/chairRight.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: green;
+    -fx-background-radius: 11px;
+}
