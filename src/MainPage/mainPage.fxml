@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -10,7 +13,7 @@
    <children>
       <Button fx:id="chairNo1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="14.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo1" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="1" textAlignment="JUSTIFY" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -18,7 +21,7 @@
       </Button>
       <Button fx:id="chairNo2" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="54.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo2" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="2" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -26,7 +29,7 @@
       </Button>
       <Button fx:id="chairNo3" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="89.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo3" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="3" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -34,7 +37,7 @@
       </Button>
       <Button fx:id="chairNo4" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo4" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="4" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -42,7 +45,7 @@
       </Button>
       <Button fx:id="chairNo5" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="159.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo5" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="5" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -50,7 +53,7 @@
       </Button>
       <Button fx:id="chairNo6" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="195.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo6" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="6" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -58,7 +61,7 @@
       </Button>
       <Button fx:id="chairNo7" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="230.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo7" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="7" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -66,7 +69,7 @@
       </Button>
       <Button fx:id="chairNo8" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="265.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo8" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="8" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -74,7 +77,7 @@
       </Button>
       <Button fx:id="chairNo9" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="54.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo9" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="9" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -82,7 +85,7 @@
       </Button>
       <Button fx:id="chairNo10" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo10" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="10" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -90,7 +93,7 @@
       </Button>
       <Button fx:id="chairNo11" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="123.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo11" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="11" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -98,7 +101,7 @@
       </Button>
       <Button fx:id="chairNo12" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="158.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo12" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="12" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -106,7 +109,7 @@
       </Button>
       <Button fx:id="chairNo13" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo13" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="13" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -114,7 +117,7 @@
       </Button>
       <Button fx:id="chairNo14" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo14" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="14" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -122,7 +125,7 @@
       </Button>
       <Button fx:id="chairNo15" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="61.0" layoutY="264.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo15" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="15" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -130,7 +133,7 @@
       </Button>
       <Button fx:id="chairNo16" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo16" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="16" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -138,7 +141,7 @@
       </Button>
       <Button fx:id="chairNo17" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo17" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="17" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -146,7 +149,7 @@
       </Button>
       <Button fx:id="chairNo18" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo18" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="18" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -154,7 +157,7 @@
       </Button>
       <Button fx:id="chairNo19" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo19" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="19" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -162,7 +165,7 @@
       </Button>
       <Button fx:id="chairNo20" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo20" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="20" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -170,7 +173,7 @@
       </Button>
       <Button fx:id="chairNo21" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="354.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo21" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="21" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -179,7 +182,7 @@
       <Line endY="250.0" layoutX="100.0" layoutY="48.0" strokeWidth="4.0" />
       <Button fx:id="chairNo22" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo22" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="22" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -187,7 +190,7 @@
       </Button>
       <Button fx:id="chairNo23" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo23" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="23" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -195,7 +198,7 @@
       </Button>
       <Button fx:id="chairNo24" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo24" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="24" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -203,7 +206,7 @@
       </Button>
       <Button fx:id="chairNo25" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo25" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="25" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -211,7 +214,7 @@
       </Button>
       <Button fx:id="chairNo26" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo26" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="26" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -219,7 +222,7 @@
       </Button>
       <Button fx:id="chairNo27" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo27" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="27" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -227,7 +230,7 @@
       </Button>
       <Button fx:id="chairNo28" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo28" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="28" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -235,7 +238,7 @@
       </Button>
       <Button fx:id="chairNo29" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo29" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="29" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -243,7 +246,7 @@
       </Button>
       <Button fx:id="chairNo30" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo30" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="30" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -251,7 +254,7 @@
       </Button>
       <Button fx:id="chairNo31" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo31" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="31" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -259,7 +262,7 @@
       </Button>
       <Button fx:id="chairNo32" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo32" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="32" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -267,7 +270,7 @@
       </Button>
       <Button fx:id="chairNo33" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo33" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="33" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -275,7 +278,7 @@
       </Button>
       <Button fx:id="chairNo34" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo34" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="34" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -283,7 +286,7 @@
       </Button>
       <Button fx:id="chairNo35" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo35" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="35" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -291,7 +294,7 @@
       </Button>
       <Button fx:id="chairNo36" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo36" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="36" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -299,7 +302,7 @@
       </Button>
       <Button fx:id="chairNo37" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo37" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="37" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -307,7 +310,7 @@
       </Button>
       <Button fx:id="chairNo38" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo38" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="38" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -315,7 +318,7 @@
       </Button>
       <Button fx:id="chairNo39" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="88.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo39" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="39" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -323,7 +326,7 @@
       </Button>
       <Button fx:id="chairNo40" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo40" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="40" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -331,7 +334,7 @@
       </Button>
       <Button fx:id="chairNo41" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo41" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="41" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -339,7 +342,7 @@
       </Button>
       <Button fx:id="chairNo42" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo42" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="42" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -347,7 +350,7 @@
       </Button>
       <Button fx:id="chairNo43" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo43" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="43" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -355,7 +358,7 @@
       </Button>
       <Button fx:id="chairNo44" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo44" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="44" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -363,7 +366,7 @@
       </Button>
       <Button fx:id="chairNo45" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="124.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo45" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="45" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -371,7 +374,7 @@
       </Button>
       <Button fx:id="chairNo46" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo46" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="46" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -379,7 +382,7 @@
       </Button>
       <Button fx:id="chairNo47" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo47" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="47" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -387,7 +390,7 @@
       </Button>
       <Button fx:id="chairNo48" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo48" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="48" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -395,7 +398,7 @@
       </Button>
       <Button fx:id="chairNo49" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo49" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="49" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -403,7 +406,7 @@
       </Button>
       <Button fx:id="chairNo50" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo50" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="50" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -411,7 +414,7 @@
       </Button>
       <Button fx:id="chairNo51" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="194.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo51" prefHeight="27.0" prefWidth="27.0" styleClass="chairDown" stylesheets="@../CSS/chairButton.css" text="51" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -419,7 +422,7 @@
       </Button>
       <Button fx:id="chairNo52" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo52" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="52" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -427,7 +430,7 @@
       </Button>
       <Button fx:id="chairNo53" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo53" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="53" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -435,7 +438,7 @@
       </Button>
       <Button fx:id="chairNo54" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo54" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="54" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -443,7 +446,7 @@
       </Button>
       <Button fx:id="chairNo55" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo55" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="55" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -451,7 +454,7 @@
       </Button>
       <Button fx:id="chairNo56" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo56" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="56" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -459,7 +462,7 @@
       </Button>
       <Button fx:id="chairNo57" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="229.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo57" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="57" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -467,7 +470,7 @@
       </Button>
       <Button fx:id="chairNo58" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo58" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="58" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -475,7 +478,7 @@
       </Button>
       <Button fx:id="chairNo59" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo59" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="59" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -483,7 +486,7 @@
       </Button>
       <Button fx:id="chairNo60" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo60" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="60" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -491,7 +494,7 @@
       </Button>
       <Button fx:id="chairNo61" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo61" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="61" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -499,7 +502,7 @@
       </Button>
       <Button fx:id="chairNo62" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo62" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="62" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -507,7 +510,7 @@
       </Button>
       <Button fx:id="chairNo63" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo63" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="63" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -516,7 +519,7 @@
       <Line endY="202.0" layoutX="445.0" layoutY="70.0" strokeWidth="4.0" />
       <Button fx:id="chairNo64" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="459.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo64" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="64" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -524,7 +527,7 @@
       </Button>
       <Button fx:id="chairNo65" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="490.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo65" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="65" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -532,7 +535,7 @@
       </Button>
       <Button fx:id="chairNo66" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="525.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo66" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="66" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -540,7 +543,7 @@
       </Button>
       <Button fx:id="chairNo67" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo67" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="67" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -548,7 +551,7 @@
       </Button>
       <Button fx:id="chairNo68" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="591.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo68" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="68" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -556,7 +559,7 @@
       </Button>
       <Button fx:id="chairNo69" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="626.0" layoutY="18.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo69" prefHeight="27.0" prefWidth="27.0" styleClass="chairUp" stylesheets="@../CSS/chairButton.css" text="69" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -564,7 +567,7 @@
       </Button>
       <Button fx:id="chairNo70" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="490.0" layoutY="123.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo70" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="70" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -572,7 +575,7 @@
       </Button>
       <Button fx:id="chairNo71" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="490.0" layoutY="157.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo71" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="71" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -580,7 +583,7 @@
       </Button>
       <Button fx:id="chairNo72" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="490.0" layoutY="192.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo72" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="72" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -588,7 +591,7 @@
       </Button>
       <Button fx:id="chairNo73" contentDisplay="CENTER" layoutX="527.0" layoutY="122.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo73" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="73" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -596,7 +599,7 @@
       </Button>
       <Button fx:id="chairNo74" contentDisplay="CENTER" layoutX="527.0" layoutY="157.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo74" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="74" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -604,7 +607,7 @@
       </Button>
       <Button fx:id="chairNo75" contentDisplay="CENTER" layoutX="527.0" layoutY="192.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo75" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="75" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -612,7 +615,7 @@
       </Button>
       <Button fx:id="chairNo76" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="574.0" layoutY="122.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo76" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="76" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -620,7 +623,7 @@
       </Button>
       <Button fx:id="chairNo77" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="574.0" layoutY="156.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo77" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="77" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -628,7 +631,7 @@
       </Button>
       <Button fx:id="chairNo78" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="574.0" layoutY="191.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo78" prefHeight="27.0" prefWidth="27.0" styleClass="chairRight" stylesheets="@../CSS/chairButton.css" text="78" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -636,7 +639,7 @@
       </Button>
       <Button fx:id="chairNo79" contentDisplay="CENTER" layoutX="613.0" layoutY="121.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo79" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="79" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -644,7 +647,7 @@
       </Button>
       <Button fx:id="chairNo80" contentDisplay="CENTER" layoutX="613.0" layoutY="156.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo80" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="80" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -652,7 +655,38 @@
       </Button>
       <Button fx:id="chairNo81" contentDisplay="CENTER" layoutX="613.0" layoutY="191.0" maxHeight="27.0" maxWidth="27.0" minHeight="27.0" minWidth="27.0" mnemonicParsing="false" onAction="#handleChairNo81" prefHeight="27.0" prefWidth="27.0" styleClass="chairLeft" stylesheets="@../CSS/chairButton.css" text="81" textFill="BLUE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <DatePicker fx:id="DatePicker" layoutX="284.0" layoutY="269.0" prefHeight="27.0" prefWidth="90.0" stylesheets="@../CSS/DatePicker.css">
+         <styleClass>
+            <String fx:value="arrow" />
+            <String fx:value="arrow-button" />
+            <String fx:value="button" />
+            <String fx:value="cell" />
+            <String fx:value="date-picker" />
+            <String fx:value="date-picker-popup" />
+            <String fx:value="label" />
+            <String fx:value="left-arrow" />
+            <String fx:value="month-year-pane" />
+            <String fx:value="right-arrow" />
+            <String fx:value="selected" />
+            <String fx:value="spinner" />
+            <String fx:value="week-number-cell" />
+         </styleClass>
+      </DatePicker>
+      <ChoiceBox fx:id="ChoiceTime" layoutX="284.0" layoutY="304.0" prefHeight="27.0" prefWidth="90.0" stylesheets="@../CSS/ChoiceBox.css">
+         <styleClass>
+            <String fx:value="choice-box" />
+            <String fx:value="label" />
+         </styleClass>
+      </ChoiceBox>
+      <Button fx:id="Check" layoutX="284.0" layoutY="340.0" mnemonicParsing="false" onAction="#checkReservation" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #9019FF; -fx-background-radius: 10;" text="CHECK IT" textAlignment="CENTER" textFill="#08ffe5">
+         <font>
+            <Font name="Century" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

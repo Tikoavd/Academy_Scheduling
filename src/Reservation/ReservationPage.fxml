@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="400.0" style="-fx-background-color: #9019FF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reservation.ReservationController">
+   <children>
+      <AnchorPane prefHeight="70.0" prefWidth="400.0">
+         <children>
+            <Button fx:id="PreviousButton" layoutY="1.0" mnemonicParsing="false" onAction="#previousButtonHandler" prefHeight="70.0" prefWidth="70.0" styleClass="back-button" stylesheets="@../CSS/ReservationButtons.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="HomeButton" layoutX="165.0" layoutY="1.0" mnemonicParsing="false" onAction="#homeButtonHandler" prefHeight="70.0" prefWidth="70.0" styleClass="home-button" stylesheets="@../CSS/ReservationButtons.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="NextButton" layoutX="329.0" layoutY="1.0" mnemonicParsing="false" onAction="#nextButtonHandler" prefHeight="70.0" prefWidth="70.0" styleClass="next-button" stylesheets="@../CSS/ReservationButtons.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Text fx:id="chairNumberText" fill="#050080" layoutX="70.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="98.40000000000009">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Text>
+            <Text fx:id="chairTypeText" fill="#050080" layoutX="230.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="98.40000000000009">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="70.0" prefHeight="70.0" prefWidth="400.0">
+         <children>
+            <DatePicker fx:id="DatePicker" layoutX="98.0" layoutY="1.0" prefHeight="0.0" prefWidth="150.0" stylesheets="@../CSS/ReservationDatePicker.css">
+               <styleClass>
+                  <String fx:value="arrow" />
+                  <String fx:value="arrow-button" />
+                  <String fx:value="button" />
+                  <String fx:value="cell" />
+                  <String fx:value="date-picker" />
+                  <String fx:value="date-picker-popup" />
+                  <String fx:value="label" />
+                  <String fx:value="left-arrow" />
+                  <String fx:value="month-year-pane" />
+                  <String fx:value="right-arrow" />
+                  <String fx:value="selected" />
+                  <String fx:value="spinner" />
+                  <String fx:value="week-number-cell" />
+               </styleClass>
+            </DatePicker>
+            <Button fx:id="chechButton" mnemonicParsing="false" onAction="#checkButtonHandler" prefHeight="70.0" prefWidth="98.0" style="-fx-background-color: yellow;" text="CHECK IT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ChoiceBox fx:id="endChoiceTime" layoutX="324.0" layoutY="36.0" prefHeight="36.0" prefWidth="75.0" stylesheets="@../CSS/ChoiceBox.css" />
+            <Button fx:id="reserveButton" layoutX="98.0" layoutY="37.0" mnemonicParsing="false" onAction="#reserveButtonHandler" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: GREEN;" text="RESERVE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ChoiceBox fx:id="startChoiceTime" layoutX="248.0" layoutY="36.0" prefHeight="36.0" prefWidth="75.0" stylesheets="@../CSS/ChoiceBox.css" />
+            <Text fill="WHITE" layoutX="256.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="START:">
+               <font>
+                  <Font name="Book Antiqua" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="341.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="END:">
+               <font>
+                  <Font name="Book Antiqua" size="17.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="reservationTable" layoutY="140.0" prefHeight="560.0" prefWidth="400.0" stylesheets="@../CSS/TableStyle.css">
+         <columns>
+            <TableColumn fx:id="reservationColumn" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" sortType="DESCENDING" text="Reservations" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

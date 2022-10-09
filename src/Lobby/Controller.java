@@ -102,16 +102,8 @@ public class Controller {
                         set.getString(Const.USER_EMAIL), set.getString(Const.USER_PHONE), password);
                 user.setUserID(set.getInt(Const.USER_ID));
 
-                (new MainPageController()).createMainPage(user);
                 logInButton.getScene().getWindow().hide();
-
-                System.out.println(user.getUserID());
-                System.out.println(user.getUserName());
-                System.out.println(user.getFirstName());
-                System.out.println(user.getLastName());
-                System.out.println(user.geteMail());
-                System.out.println(user.getPhoneNumber());
-                System.out.println(user.getPassword());
+                (new MainPageController()).createMainPage(user);
             }
             else {
                 incorrectUserText.setText("Incorrect Username/Email or password!");

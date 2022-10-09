@@ -1,5 +1,6 @@
 package Config;
 
+import Reservation.Reserve;
 import Users.User;
 
 import java.sql.*;
@@ -75,5 +76,28 @@ public class DBHandler extends Configs {
         }
 
         return set;
+    }
+
+    public ResultSet getChair(int chairId) {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.CHAIRS_TABLE + " WHERE " + Const.CHAIR_ID + "=" + chairId;
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            set = stat.executeQuery(query);
+        } catch (SQLException e){
+        } catch (ClassNotFoundException e){
+        }
+
+        return set;
+    }
+
+    public void addReservation(Reserve reserve) {
+        String insert = "INSERT INTO " + Const.RESERVATION_TABLE + "(" + Const.RESERVATION_USER_ID + "," + Const.RESERVATION_CHAIR_ID +
+                        "," + Const.RESERVATION_START_DATE + "," + Const.RESERVATION_END_DATE + ") VALUES(" + reserve.getUserID() + ","
+                        + reserve.getChairID() + "," + Timestamp.valueOf(reserve.getStartDate()) + "," + Timestamp.valueOf(reserve.getEndDate()) + ")";
+
+
     }
 }

@@ -1,0 +1,14 @@
+.back-button {
+    -fx-background-image: url("../Reservation/images/previous.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: transparent;
+}
+
+.next-button {
+    -fx-background-image: url("../Reservation/images/next.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: transparent;
+}
+
+.home-button {
+    -fx-background-image: url("../Reservation/images/Home.png") no-repeat scroll 0 0 transparent;
+    -fx-background-color: transparent;
+}
