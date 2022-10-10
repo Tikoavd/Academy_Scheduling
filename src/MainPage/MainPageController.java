@@ -6,6 +6,7 @@ import GUIMethods.openWindows;
 import Lobby.Main;
 import Reservation.ReservationController;
 import Users.User;
+import com.mysql.cj.protocol.Resultset;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,7 +56,29 @@ public class MainPageController {
         ChoiceTime.setValue(Times.get(12));
 
         DatePicker.setValue(LocalDate.now());
+
+        ChairButtons = new Button[] {chairNo1, chairNo2, chairNo3, chairNo4, chairNo5, chairNo6, chairNo7, chairNo8, chairNo9, chairNo10,
+                chairNo11, chairNo12, chairNo13, chairNo14, chairNo15, chairNo16, chairNo17, chairNo18, chairNo19, chairNo20, chairNo21,
+                chairNo22, chairNo23, chairNo24, chairNo25, chairNo26, chairNo27, chairNo28, chairNo29, chairNo30, chairNo31, chairNo32,
+                chairNo33, chairNo34, chairNo35, chairNo36, chairNo37, chairNo38, chairNo39, chairNo40, chairNo41, chairNo42, chairNo43,
+                chairNo44, chairNo45, chairNo46, chairNo47, chairNo48, chairNo49, chairNo50, chairNo51, chairNo52, chairNo53, chairNo54,
+                chairNo55, chairNo56, chairNo57, chairNo58, chairNo59, chairNo60, chairNo61, chairNo62, chairNo63, chairNo64, chairNo65,
+                chairNo66, chairNo67, chairNo68, chairNo69, chairNo70, chairNo71, chairNo72, chairNo73, chairNo74, chairNo75, chairNo76,
+                chairNo77, chairNo78, chairNo79, chairNo80, chairNo81};
+
+        DBHandler DbCon = new DBHandler();
+        ResultSet set = DbCon.getAllCurrentReservations();
+        try {
+            while (set.next()){
+                ChairButtons[set.getInt(Const.RESERVATION_CHAIR_ID) - 1].setStyle("-fx-background-color: red");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
+    @FXML
+    private Button[] ChairButtons;
 
     @FXML
     private Button Check;

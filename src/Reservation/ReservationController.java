@@ -103,6 +103,17 @@ public class ReservationController {
             }
         } catch (SQLException e) {
         }
+
+        set = DbCon.getUserReservation(ReservationController.user.getUserID());
+
+        try {
+            if (set.next()) {
+                reserveButton.setDisable(true);
+                reserveButton.setStyle("-fx-background-color: red");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -130,6 +141,13 @@ public class ReservationController {
 
     @FXML
     void reserveButtonHandler() {
+        Reserve res = new Reserve(ReservationController.user.getUserID(), ReservationController.ChairId,
+                            DatePicker.getValue().toString(), startChoiceTime.getValue(),
+                                DatePicker.getValue().toString(), endChoiceTime.getValue());
 
+        DBHandler DbCon = new DBHandler();
+        DbCon.addReservation(res);
+        reserveButton.setDisable(true);
+        reserveButton.setStyle("-fx-background-color: red");
     }
 }

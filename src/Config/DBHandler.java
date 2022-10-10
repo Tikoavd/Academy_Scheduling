@@ -96,8 +96,52 @@ public class DBHandler extends Configs {
     public void addReservation(Reserve reserve) {
         String insert = "INSERT INTO " + Const.RESERVATION_TABLE + "(" + Const.RESERVATION_USER_ID + "," + Const.RESERVATION_CHAIR_ID +
                         "," + Const.RESERVATION_START_DATE + "," + Const.RESERVATION_END_DATE + ") VALUES(" + reserve.getUserID() + ","
-                        + reserve.getChairID() + "," + Timestamp.valueOf(reserve.getStartDate()) + "," + Timestamp.valueOf(reserve.getEndDate()) + ")";
+                        + reserve.getChairID() + ", ?, ?)";
 
+        try {
+            PreparedStatement stat = getDbConnection().prepareStatement(insert);
+            stat.setTimestamp(1, Timestamp.valueOf(reserve.getStartDate()));
+            stat.setTimestamp(2, Timestamp.valueOf(reserve.getEndDate()));
 
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getUserReservation(int userid) {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.RESERVATION_TABLE + " WHERE " + Const.RESERVATION_USER_ID + "=" + userid;
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            set = stat.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return set;
+    }
+
+    public ResultSet getAllCurrentReservations() {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.RESERVATION_TABLE + " WHERE " +
+                Const.RESERVATION_START_DATE + "<= NOW() AND " + Const.RESERVATION_END_DATE + "> NOW()";
+        try {
+            Statement stat = getDbConnection().createStatement();
+            set = stat.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return set;
     }
 }
