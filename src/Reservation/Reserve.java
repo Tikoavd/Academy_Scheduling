@@ -2,6 +2,7 @@ package Reservation;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Reserve {
@@ -81,5 +82,13 @@ public class Reserve {
 
     public LocalDateTime getEndDate() {
         return endDate;
+    }
+
+    public LocalTime getStartTime() {
+        return startDate.toLocalTime();
+    }
+
+    public LocalTime getEndTime() {
+        return endDate.toLocalTime();
     }
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReservationController {
@@ -66,13 +68,13 @@ public class ReservationController {
     private ChoiceBox<String> endChoiceTime;
 
     @FXML
-    private TableColumn<?, ?> startColumn;
+    private TableColumn<Reserve, LocalTime> startColumn;
 
     @FXML
-    private TableColumn<?, ?> endColumn;
+    private TableColumn<Reserve, LocalTime> endColumn;
 
     @FXML
-    private TableView<?> reservationTable;
+    private TableView<Reserve> reservationTable;
 
     @FXML
     private Button reserveButton;
@@ -92,11 +94,11 @@ public class ReservationController {
 
         chairNumberText.setText(Integer.toString(ReservationController.ChairId));
 
-        if(ReservationController.ChairId == 81) {
+        if (ReservationController.ChairId == 81) {
             NextButton.setVisible(false);
         }
 
-        if(ReservationController.ChairId == 1) {
+        if (ReservationController.ChairId == 1) {
             PreviousButton.setVisible(false);
         }
 
@@ -104,7 +106,7 @@ public class ReservationController {
         ResultSet set = DbCon.getChair(ReservationController.ChairId);
 
         try {
-            if(set.next()){
+            if (set.next()) {
                 chairTypeText.setText(set.getString(Const.CHAIR_TYPE));
             }
         } catch (SQLException e) {
@@ -120,11 +122,48 @@ public class ReservationController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        set = DbCon.getChairReservations(ChairId, DatePicker.getValue());
+
+        startColumn.setCellValueFactory(new PropertyValueFactory<Reserve, LocalTime>("StartTime"));
+        endColumn.setCellValueFactory(new PropertyValueFactory<Reserve, LocalTime>("EndTime"));
+
+        ObservableList<Reserve> reslist = reservationTable.getItems();
+
+        try {
+            while (set.next()) {
+                Reserve res = new Reserve(set.getInt(Const.RESERVATION_USER_ID), set.getInt(Const.RESERVATION_CHAIR_ID),
+                        set.getTimestamp(Const.RESERVATION_START_DATE), set.getTimestamp(Const.RESERVATION_END_DATE));
+
+                reslist.add(res);
+            }
+            reservationTable.setItems(reslist);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void checkButtonHandler() {
+        reservationTable.getItems().clear();
+        TextMessage.setText("");
 
+        ObservableList<Reserve> reslist = reservationTable.getItems();
+
+        DBHandler DbCon = new DBHandler();
+        ResultSet set = DbCon.getChairReservations(ChairId, DatePicker.getValue());
+
+        try {
+            while (set.next()) {
+                Reserve res = new Reserve(set.getInt(Const.RESERVATION_USER_ID), set.getInt(Const.RESERVATION_CHAIR_ID),
+                        set.getTimestamp(Const.RESERVATION_START_DATE), set.getTimestamp(Const.RESERVATION_END_DATE));
+
+                reslist.add(res);
+            }
+            reservationTable.setItems(reslist);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -148,10 +187,10 @@ public class ReservationController {
     @FXML
     void reserveButtonHandler() {
         Reserve res = new Reserve(ReservationController.user.getUserID(), ReservationController.ChairId,
-                            DatePicker.getValue().toString(), startChoiceTime.getValue(),
-                                DatePicker.getValue().toString(), endChoiceTime.getValue());
+                DatePicker.getValue().toString(), startChoiceTime.getValue(),
+                DatePicker.getValue().toString(), endChoiceTime.getValue());
 
-        if(res.getStartDate().isBefore(LocalDateTime.now()) || res.getStartDate().isAfter(LocalDateTime.now().plusWeeks(1))
+        if (res.getStartDate().isBefore(LocalDateTime.now()) || res.getStartDate().isAfter(LocalDateTime.now().plusWeeks(1))
                 || res.getStartDate().isAfter(res.getEndDate()) || res.getStartDate().isEqual(res.getEndDate())) {
             TextMessage.setText("Please enter correct date.");
             TextMessage.setStyle("-fx-fill: red");
@@ -159,10 +198,27 @@ public class ReservationController {
         }
 
         DBHandler DbCon = new DBHandler();
+
+        ResultSet set = DbCon.getIntersectedReservations(res);
+
+        try {
+            if(set.next()) {
+                TextMessage.setText("Already reserved...");
+                TextMessage.setStyle("-fx-fill: red");
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         DbCon.addReservation(res);
         reserveButton.setDisable(true);
         reserveButton.setStyle("-fx-background-color: red");
         TextMessage.setText("Success!");
         TextMessage.setStyle("-fx-fill: green");
+
+        ObservableList<Reserve> reslist = reservationTable.getItems();
+        reslist.add(res);
+        reservationTable.setItems(reslist);
     }
 }

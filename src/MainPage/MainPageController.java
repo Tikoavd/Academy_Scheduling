@@ -83,7 +83,7 @@ public class MainPageController {
         firstNameText.setText(user.getFirstName());
         lastNameText.setText(user.getLastName());
         emailText.setText(user.geteMail());
-        phoneText.setText(user.getPhoneNumber());
+        phoneText.setText("+374 " + user.getPhoneNumber());
 
         set = DbCon.getUserReservation(user.getUserID());
         try {
@@ -134,7 +134,10 @@ public class MainPageController {
 
     @FXML
     void cancelButtonHandler() {
+        DBHandler DbCon = new DBHandler();
+        DbCon.deleteUserReservation(user.getUserID());
 
+        reservePane.setVisible(false);
     }
 
     @FXML

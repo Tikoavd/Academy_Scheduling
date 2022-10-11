@@ -30,6 +30,9 @@
 .table-view {
     -fx-base: #37ACFF;
     -fx-control-inner-background: #37ACFF;
+    -fx-cell-size: 30px;
+    -fx-font-size: 16pt;
+    -fx-text-alignment: center;
     -fx-background-color: #37ACFF;
     -fx-table-cell-border-color: #52009F;
     -fx-table-header-border-color: #52009F;

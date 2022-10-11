@@ -710,7 +710,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Text fx:id="chairNumberText" fill="#f1ff00" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chair No: 81" wrappingWidth="90.39999999999986">
+                  <Text fx:id="chairNumberText" fill="#f1ff00" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="90.39999999999986">
                      <font>
                         <Font size="14.0" />
                      </font>

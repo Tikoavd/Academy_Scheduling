@@ -4,6 +4,7 @@ import Reservation.Reserve;
 import Users.User;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class DBHandler extends Configs {
@@ -160,5 +161,65 @@ public class DBHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteUserReservation(int userid) {
+        String delete = "DELETE FROM " + Const.RESERVATION_TABLE + " WHERE " + Const.RESERVATION_USER_ID + "=" + userid;
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            stat.executeUpdate(delete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getChairReservations(int chairid, LocalDate date) {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.RESERVATION_TABLE + " WHERE " + Const.RESERVATION_CHAIR_ID + "=" + chairid + " AND " +
+                        Const.RESERVATION_END_DATE + "> NOW() AND DATE(" + Const.RESERVATION_END_DATE + ") = DATE(?) ORDER BY " +
+                        Const.RESERVATION_START_DATE;
+
+        try {
+            PreparedStatement stat = getDbConnection().prepareStatement(query);
+            stat.setTimestamp(1, Timestamp.valueOf(date.atStartOfDay()));
+            set = stat.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return set;
+    }
+
+    public ResultSet getIntersectedReservations(Reserve res) {
+        ResultSet set = null;
+
+        String query = "SELECT * FROM " + Const.RESERVATION_TABLE + " WHERE " + Const.RESERVATION_CHAIR_ID + "=" + res.getChairID() +
+                        " AND (((" + Const.RESERVATION_START_DATE + "<= ? AND " + Const.RESERVATION_END_DATE + "> ?) OR (" +
+                        Const.RESERVATION_START_DATE + "< ? AND " + Const.RESERVATION_END_DATE + ">= ?)) OR (" +
+                        Const.RESERVATION_START_DATE + ">= ? AND " + Const.RESERVATION_END_DATE + "<= ?))";
+
+        try{
+            PreparedStatement stat = getDbConnection().prepareStatement(query);
+            stat.setTimestamp(1, Timestamp.valueOf(res.getStartDate()));
+            stat.setTimestamp(2, Timestamp.valueOf(res.getStartDate()));
+            stat.setTimestamp(3, Timestamp.valueOf(res.getEndDate()));
+            stat.setTimestamp(4, Timestamp.valueOf(res.getEndDate()));
+            stat.setTimestamp(5, Timestamp.valueOf(res.getStartDate()));
+            stat.setTimestamp(6, Timestamp.valueOf(res.getEndDate()));
+
+            set = stat.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return set;
     }
 }
