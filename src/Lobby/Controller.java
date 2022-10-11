@@ -63,8 +63,7 @@ public class Controller {
         correctPasswordText.setText("");
         incorrectUserText.setText("");
 
-        if (userIdentifier.isEmpty() || userIdentifier.length() < 6 || userIdentifier.length() > 20
-                || !userIdentifierField.getText().trim().matches("^[a-zA-Z0-9]+$")) {
+        if (userIdentifier.isEmpty() || userIdentifier.length() < 6 || userIdentifier.length() > 20) {
             correctLoginText.setText("Please enter correct login: 6-20 characters.");
             correctLoginText.setStyle("-fx-fill: red");
 
@@ -118,15 +117,14 @@ public class Controller {
             userIdentifierField.pseudoClassStateChanged(
                     PseudoClass.getPseudoClass("error"),
                     !userIdentifierField.getText().isEmpty() &&
-                            userIdentifierField.getText().trim().length() < 6 || userIdentifierField.getText().trim().length() > 20
-                            || !userIdentifierField.getText().trim().matches("^[a-zA-Z0-9]+$"));
+                            userIdentifierField.getText().trim().length() < 6 || userIdentifierField.getText().trim().length() > 20);
         });
 
         userIdentifierField.textProperty().addListener(event -> {
             userIdentifierField.pseudoClassStateChanged(
                     PseudoClass.getPseudoClass("noterror"),
                     !userIdentifierField.getText().trim().isEmpty() && userIdentifierField.getText().trim().length() >= 6 &&
-                            userIdentifierField.getText().trim().length() <= 20 && userIdentifierField.getText().trim().matches("^[a-zA-Z0-9]+$"));
+                            userIdentifierField.getText().trim().length() <= 20);
         });
     }
 

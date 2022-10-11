@@ -145,8 +145,14 @@ public class ReservationController {
 
     @FXML
     void checkButtonHandler() {
-        reservationTable.getItems().clear();
         TextMessage.setText("");
+        if(DatePicker.getValue().isBefore(LocalDate.now()) || DatePicker.getValue().isAfter(LocalDate.now().plusWeeks(1))) {
+            TextMessage.setText("Can't check for this date");
+            TextMessage.setStyle("-fx-fill: red");
+            return;
+        }
+
+        reservationTable.getItems().clear();
 
         ObservableList<Reserve> reslist = reservationTable.getItems();
 
