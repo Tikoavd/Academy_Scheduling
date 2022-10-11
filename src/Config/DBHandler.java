@@ -4,6 +4,7 @@ import Reservation.Reserve;
 import Users.User;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 public class DBHandler extends Configs {
     Connection dbConnection;
@@ -128,14 +129,16 @@ public class DBHandler extends Configs {
         return set;
     }
 
-    public ResultSet getAllCurrentReservations() {
+    public ResultSet getAllReservations(LocalDateTime datetime) {
         ResultSet set = null;
 
         String query = "SELECT * FROM " + Const.RESERVATION_TABLE + " WHERE " +
-                Const.RESERVATION_START_DATE + "<= NOW() AND " + Const.RESERVATION_END_DATE + "> NOW()";
+                Const.RESERVATION_START_DATE + "<= ? AND " + Const.RESERVATION_END_DATE + " > ?";
         try {
-            Statement stat = getDbConnection().createStatement();
-            set = stat.executeQuery(query);
+            PreparedStatement stat = getDbConnection().prepareStatement(query);
+            stat.setTimestamp(1, Timestamp.valueOf(datetime));
+            stat.setTimestamp(2, Timestamp.valueOf(datetime));
+            set = stat.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -143,5 +146,19 @@ public class DBHandler extends Configs {
         }
 
         return set;
+    }
+
+    public void deleteOldReservations() {
+        String delete = "DELETE FROM " + Const.RESERVATION_TABLE + " WHERE " +
+                Const.RESERVATION_END_DATE + "< NOW()";
+
+        try {
+            Statement stat = getDbConnection().createStatement();
+            stat.executeUpdate(delete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -6,8 +6,10 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" styleClass="parquet" stylesheets="@../CSS/parquetBg.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage.MainPageController">
    <children>
@@ -692,5 +694,43 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Text fx:id="CorrectDateText" fill="RED" layoutX="240.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="184.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Pane layoutX="449.0" layoutY="222.0" prefHeight="178.0" prefWidth="250.0">
+         <children>
+            <Pane fx:id="reservePane" prefHeight="66.0" prefWidth="250.0" style="-fx-background-color: green;">
+               <children>
+                  <Text fx:id="startText" fill="#f1ff00" layoutX="3.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.39999999999986" />
+                  <Text fx:id="endText" fill="RED" layoutX="3.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.0" />
+                  <Button fx:id="cancelButton" layoutX="190.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancelButtonHandler" prefHeight="27.0" prefWidth="55.0" style="-fx-background-color: red;" text="Cancel" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Text fx:id="chairNumberText" fill="#f1ff00" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chair No: 81" wrappingWidth="90.39999999999986">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Text fx:id="userNameText" fill="#0c4815" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="250.39999999999986" />
+            <Text fx:id="firstNameText" fill="#0c4815" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="250.39999999999986" />
+            <Text fx:id="lastNameText" fill="#0c4815" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="250.39999999999986" />
+            <Text fx:id="emailText" fill="#0c4815" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="250.39999999999986" />
+            <Text fx:id="phoneText" fill="#0c4815" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="250.39999999999986" />
+            <Button fx:id="logOutButton" layoutX="187.0" layoutY="152.0" mnemonicParsing="false" onAction="#logOutButtonHandler" style="-fx-background-color: transparent;" text="Log out" textFill="YELLOW">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

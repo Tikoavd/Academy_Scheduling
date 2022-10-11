@@ -51,6 +51,9 @@ public class ReservationController {
     private Button PreviousButton;
 
     @FXML
+    private Text TextMessage;
+
+    @FXML
     private Text chairNumberText;
 
     @FXML
@@ -63,7 +66,10 @@ public class ReservationController {
     private ChoiceBox<String> endChoiceTime;
 
     @FXML
-    private TableColumn<?, ?> reservationColumn;
+    private TableColumn<?, ?> startColumn;
+
+    @FXML
+    private TableColumn<?, ?> endColumn;
 
     @FXML
     private TableView<?> reservationTable;
@@ -145,9 +151,18 @@ public class ReservationController {
                             DatePicker.getValue().toString(), startChoiceTime.getValue(),
                                 DatePicker.getValue().toString(), endChoiceTime.getValue());
 
+        if(res.getStartDate().isBefore(LocalDateTime.now()) || res.getStartDate().isAfter(LocalDateTime.now().plusWeeks(1))
+                || res.getStartDate().isAfter(res.getEndDate()) || res.getStartDate().isEqual(res.getEndDate())) {
+            TextMessage.setText("Please enter correct date.");
+            TextMessage.setStyle("-fx-fill: red");
+            return;
+        }
+
         DBHandler DbCon = new DBHandler();
         DbCon.addReservation(res);
         reserveButton.setDisable(true);
         reserveButton.setStyle("-fx-background-color: red");
+        TextMessage.setText("Success!");
+        TextMessage.setStyle("-fx-fill: green");
     }
 }

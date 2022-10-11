@@ -5,8 +5,10 @@ import Config.DBHandler;
 import GUIMethods.openWindows;
 import Lobby.Main;
 import Reservation.ReservationController;
+import Reservation.Reserve;
 import Users.User;
 import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.DbDoc;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -28,6 +32,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Hashtable;
 
 public class MainPageController {
@@ -39,15 +45,10 @@ public class MainPageController {
     public void createMainPage(User user) {
         MainPageController.user = user;
 
-        openWindows.openWindow(getClass(), "../", "../MainPage/mainPage.fxml");
+        DBHandler DbCon = new DBHandler();
+        DbCon.deleteOldReservations();
 
-        System.out.println(MainPageController.user.getUserID());
-        System.out.println(MainPageController.user.getUserName());
-        System.out.println(MainPageController.user.getFirstName());
-        System.out.println(MainPageController.user.getLastName());
-        System.out.println(MainPageController.user.geteMail());
-        System.out.println(MainPageController.user.getPhoneNumber());
-        System.out.println(MainPageController.user.getPassword());
+        openWindows.openWindow(getClass(), "../", "../MainPage/mainPage.fxml");
     }
 
     @FXML
@@ -67,7 +68,61 @@ public class MainPageController {
                 chairNo77, chairNo78, chairNo79, chairNo80, chairNo81};
 
         DBHandler DbCon = new DBHandler();
-        ResultSet set = DbCon.getAllCurrentReservations();
+        ResultSet set = DbCon.getAllReservations(LocalDateTime.now());
+        try {
+            while (set.next()){
+                ChairButtons[set.getInt(Const.RESERVATION_CHAIR_ID) - 1].setStyle("-fx-background-color: red");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        reservePane.setVisible(false);
+
+        userNameText.setText(user.getUserName());
+        firstNameText.setText(user.getFirstName());
+        lastNameText.setText(user.getLastName());
+        emailText.setText(user.geteMail());
+        phoneText.setText(user.getPhoneNumber());
+
+        set = DbCon.getUserReservation(user.getUserID());
+        try {
+            if (set.next()) {
+                Reserve res = new Reserve(set.getInt(Const.RESERVATION_USER_ID), set.getInt(Const.RESERVATION_CHAIR_ID),
+                                    set.getTimestamp(Const.RESERVATION_START_DATE), set.getTimestamp(Const.RESERVATION_END_DATE));
+
+                reservePane.setVisible(true);
+                DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                String startDate = res.getStartDate().format(format);
+                String endDate = res.getEndDate().format(format);
+                startText.setText("Start: " + startDate);
+                endText.setText("End: " + endDate);
+                chairNumberText.setText("Chair No: " + res.getChairID());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void checkReservation() {
+        String dateTimeString = DatePicker.getValue().toString() + " " + ChoiceTime.getValue();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, format);
+
+        if (dateTime.isBefore(LocalDateTime.now()) || dateTime.isAfter(LocalDateTime.now().plusWeeks(1))) {
+            CorrectDateText.setText("Please enter correct date");
+            return;
+        }
+
+        CorrectDateText.setText("");
+
+        for (Button chbutton : ChairButtons) {
+            chbutton.setStyle("-fx-background-color: green");
+        }
+
+        DBHandler DbCon = new DBHandler();
+        ResultSet set = DbCon.getAllReservations(dateTime);
         try {
             while (set.next()){
                 ChairButtons[set.getInt(Const.RESERVATION_CHAIR_ID) - 1].setStyle("-fx-background-color: red");
@@ -78,7 +133,54 @@ public class MainPageController {
     }
 
     @FXML
+    void cancelButtonHandler() {
+
+    }
+
+    @FXML
+    void logOutButtonHandler() {
+        logOutButton.getScene().getWindow().hide();
+        openWindows.openWindow(getClass(), "../", "../Lobby/Lobby.fxml");
+    }
+
+    @FXML
+    private Button cancelButton;
+
+    @FXML
+    private Text emailText;
+
+    @FXML
+    private Text firstNameText;
+
+    @FXML
+    private Text lastNameText;
+
+    @FXML
+    private Button logOutButton;
+
+    @FXML
+    private Text phoneText;
+
+    @FXML
+    private Pane reservePane;
+
+    @FXML
+    private Text startText;
+
+    @FXML
+    private Text endText;
+
+    @FXML
+    private Text chairNumberText;
+
+    @FXML
+    private Text userNameText;
+
+    @FXML
     private Button[] ChairButtons;
+
+    @FXML
+    private Text CorrectDateText;
 
     @FXML
     private Button Check;
@@ -331,11 +433,6 @@ public class MainPageController {
 
     @FXML
     private Button chairNo9;
-
-    @FXML
-    void checkReservation() {
-
-    }
 
     @FXML
     void handleChairNo1() {
