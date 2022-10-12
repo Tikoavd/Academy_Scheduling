@@ -220,11 +220,8 @@ public class ReservationController {
         DbCon.addReservation(res);
         reserveButton.setDisable(true);
         reserveButton.setStyle("-fx-background-color: red");
+        checkButtonHandler();
         TextMessage.setText("Success!");
         TextMessage.setStyle("-fx-fill: green");
-
-        ObservableList<Reserve> reslist = reservationTable.getItems();
-        reslist.add(res);
-        reservationTable.setItems(reslist);
     }
 }
